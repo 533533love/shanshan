@@ -1,0 +1,48 @@
+<head>
+	<style type="text/css">
+		/*lable标签的大小、位置、背景颜色更改，在css选择时，“+”代表相邻元素，即当前元素的下一元素*/
+		input[type="radio"] + label::before 
+		{
+			content: "\a0";  /*不换行空格*/
+			display: inline-block;
+			vertical-align: .2em;
+			width: .8em;
+			height: .8em;
+			margin-right: .2em;
+			border-radius: .2em;
+			background-color: silver;
+			text-indent: .15em;
+			line-height: .65;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+		}
+		input[type="radio"]:checked + label::before 
+		{
+			content: "\2713";
+			background-color: yellowgreen;
+		}
+		input 
+		{
+			position: absolute;
+			clip: rect(0, 0, 0, 0);
+		}
+		input[type="radio"]:focus + label::before 
+		{
+			box-shadow: 0 0 .1em .1em #58a;
+		}
+		input[type="radio"]:disabled + label::before 
+		{
+			background-color: gray;
+			box-shadow: none;
+			color: #555;
+		}
+	</style>
+</head>
+<body background="1.jpg"  style="padding: 10%">
+	<div>
+		<input type="radio" id="awesome0" name="mode" />
+		<label for="awesome0">Awesome!</label>
+		<input type="radio" id="awesome1" name="mode" />
+		<label for="awesome1">Awesome!</label>
+		<input type="radio" id="awesome2" name="mode" />
+		<label for="awesome2">Awesome!</label>
+	</div>
+</body>
